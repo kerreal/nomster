@@ -1,12 +1,10 @@
-
 <% @places.each do |place| %>
-<!--    Place.create(name: '<%= place.name %>', address: '<%= place.address %>', description: '<%= place.description %>')<br /> -->
 
-<div class="Shadow-box col-10 offset-1">
-  <h2><%= place.name %></h2>
-  <i><%= place.address %></i><br /><br />
-  <p><%= place.description %></p>
-</div>
+  <div class="Shadow-box col-10 offset-1">
+    <h2><%= place.name %></h2>
+    <i><%= place.address %></i><br /><br />
+    <p><%= place.description %></p>
+  </div>
 
 <% end %>
 <div class="Shadow-box col-10 offset-1">
