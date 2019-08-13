@@ -13,6 +13,8 @@ class PlacesController < ApplicationController
     @place = Place.new
   end
 
+  private
+
   def place_params
     params.require(:place).permit(:name, :description, :address)
   end
