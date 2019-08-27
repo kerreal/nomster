@@ -6,6 +6,24 @@
 <br /><br />
 <p><%= @place.description %></p>
 
+<% if @photo.picture.present? %>
+<figure>
+    <%= image_tag @photo.picture.url, :class => "rounded float-left", :height => '400px' %>
+    <figcaption><%= @photo.caption %></figcaption>
+</figure>
+<% end %>
+
+<!-- THE PHOTOS  -->
+<%= simple_form_for @photo, url: place_photos_path(@place) do |f| %>
+  <%= f.input :picture %>
+  <%= f.input :caption %>
+  <%= f.submit "Add a Photo", class: 'btn btn-secondary' %>
+<% end %>
+
+
+<div class="clear"></div>
+
+<!-- THE MAP -->
 <% if @place.latitude.present? && @place.longitude.present? %>
   <script>
   function initMap() {
@@ -31,6 +49,7 @@
 
 <br />
 
+<!-- THE EDIT LOCATION BUTTON -->
 <div class="float-right">
   <% if current_user && current_user == @place.user %>
     <%= link_to 'Edit', edit_place_path(@place), class: 'btn btn-primary' %>
@@ -43,7 +62,7 @@
 
 
 
-<!-- Modal -->
+<!-- ADD A COMMENT MODAL -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -69,8 +88,7 @@
 </div>
 
 
-
-
+<!-- THE COMMENTS -->
 <div class="col-8 offset-1">
   <h1 class="float-left">Comments</h1>
   <!-- Button trigger modal -->
