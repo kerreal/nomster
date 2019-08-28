@@ -22,7 +22,8 @@
       <% if photo.caption.present? %>
         <%= photo.caption %>
       <% end %>
-      <%= link_to 'Remove', place_path(@place), method: :delete, data: {confirm: 'Are you sure you want to delete this?'}, class: 'btn-sm btn-danger float-right' %>
+      <!-- Adding the remove button to Comments then will try to apply that logic to photos
+        <%= link_to 'Remove', place_path(@place), method: :delete, data: {confirm: 'Are you sure you want to delete this picture?'}, class: 'btn-sm btn-danger float-right' %> -->
     </p>
   <% end %>
 <% end %>
