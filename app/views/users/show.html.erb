@@ -1,18 +1,15 @@
-<h1>User Dashboard</h1>
-<ul class="navbar-nav">
-  <% if user_signed_in? %>
-    <li class="nav-item">
-      <%= link_to 'My Profile', user_path(current_user), class: 'nav-link' %>
-    </li>
-    <li class="nav-item">
-      <%= link_to 'Sign out', destroy_user_session_path, method: :delete, class: 'nav-link' %>
-    </li>
-  <% else %>
-    <li class="nav-item">
-      <%= link_to 'Sign in', new_user_session_path, class: 'nav-link' %>
-    </li>
-    <li class="nav-item">
-      <%= link_to 'Sign up', new_user_registration_path, class: 'nav-link' %>
-    </li>
-  <% end %>
-</ul>
+<div class="Shadow-box col-10 offset-1">
+  <div class="row">
+    <div class="col-4">
+      <%= image_tag 'user.png' %>
+    </div>
+
+    <div class="col-8">
+      <h1><%= @user.email %></h1>
+      <h3>Member Since: <%= @user.created_at.strftime("%B %d, %Y") %></h3>
+      <h4><%= @user.comments.count %> total comments</h4>
+      <h4><%= @user.comments.where(rating: '5_stars').count %> total 5 star reviews</h4>
+    </div>
+  </div>
+  <div class="clear"></div>
+</div>
